@@ -517,6 +517,227 @@
     font-style:italic;
     margin-top:20px;
   }
+
+  /* ---------- ANNIVERSARY RIBBON (hero corner) ---------- */
+  .anniv-ribbon{
+    position:absolute;
+    top:34px;
+    right:-64px;
+    width:260px;
+    transform:rotate(40deg);
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color:var(--wine-deep);
+    text-align:center;
+    padding:8px 0;
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    box-shadow:0 4px 10px var(--shadow);
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-bottom:1px solid rgba(0,0,0,0.15);
+    z-index:2;
+  }
+  @media (max-width:640px){
+    .anniv-ribbon{ top:22px; right:-70px; width:230px; font-size:0.72rem; }
+  }
+
+  /* ---------- ANNIVERSARY SECTION ---------- */
+  .anniversary{
+    text-align:center;
+    background:
+      linear-gradient(180deg, var(--wine-deep), var(--wine) 60%, var(--wine-deep));
+    color:var(--parchment);
+    padding:80px 0;
+    position:relative;
+    border-top:4px double var(--gold);
+    border-bottom:4px double var(--gold);
+  }
+  .anniversary .eyebrow{ color:var(--gold-bright); }
+  .anniversary h2{
+    color:var(--parchment);
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    margin:14px 0 8px;
+  }
+  .anniversary .roman{
+    font-family:'Cinzel Decorative', serif;
+    font-weight:900;
+    font-size:clamp(4rem, 12vw, 7rem);
+    color:var(--gold-bright);
+    line-height:1;
+    text-shadow:0 4px 18px rgba(0,0,0,0.4);
+    margin:6px 0 18px;
+  }
+  .anniversary p{
+    max-width:620px;
+    margin:0 auto;
+    color:var(--parchment-dark);
+    font-size:1.05rem;
+  }
+  .edition-track{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    margin:34px auto 0;
+    max-width:560px;
+    flex-wrap:wrap;
+  }
+  .edition-dot{
+    width:30px; height:30px;
+    border-radius:50%;
+    border:2px solid var(--gold-bright);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cinzel', serif;
+    font-size:0.7rem;
+    color:var(--gold-bright);
+    background:rgba(255,255,255,0.05);
+  }
+  .edition-dot.final{
+    width:38px; height:38px;
+    background:var(--gold-bright);
+    color:var(--wine-deep);
+    font-weight:700;
+    font-size:0.85rem;
+  }
+  .edition-line{
+    width:22px; height:2px;
+    background:rgba(217,169,64,0.4);
+  }
+  @media (max-width:480px){
+    .edition-line{ width:10px; }
+  }
+
+  /* ---------- PATRIMOINE (heritage) SECTION ---------- */
+  .heritage-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px;
+    margin-bottom:52px;
+    align-items:start;
+  }
+  .heritage-card:last-child{ margin-bottom:0; }
+  @media (max-width:760px){ .heritage-card{grid-template-columns:1fr; gap:16px;} }
+
+  .heritage-card h3{
+    font-family:'Cinzel', serif;
+    font-size:1.3rem;
+    color:var(--wine-deep);
+    margin-bottom:12px;
+  }
+  .heritage-card p{ color:#4a3a24; margin:0 0 12px; }
+  .heritage-card p:last-child{ margin-bottom:0; }
+  .heritage-card .tag{
+    display:inline-block;
+    font-family:'Cinzel', serif;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--wine);
+    border:1.5px solid var(--wine);
+    border-radius:999px;
+    padding:4px 14px;
+    margin-bottom:14px;
+  }
+  .heritage-link{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'Cinzel', serif;
+    font-size:0.8rem;
+    letter-spacing:0.06em;
+    color:var(--wine-deep);
+    text-decoration:underline;
+  }
+  .heritage-aside{
+    background:linear-gradient(180deg,#f8f1dc,#ecdfb9);
+    border:2px solid var(--gold);
+    border-radius:10px;
+    padding:22px 24px;
+    box-shadow:0 6px 16px var(--shadow);
+    font-size:0.94rem;
+    color:#4a3a24;
+  }
+  .heritage-aside strong{ color:var(--wine-deep); }
+
+  /* ---------- ASSOCIATION / VEREIN SECTION ---------- */
+  .assoc-panel{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:30px;
+    align-items:center;
+    background:linear-gradient(180deg,#f8f1dc,#ecdfb9);
+    border:2px solid var(--gold);
+    border-radius:14px;
+    padding:36px 40px;
+    box-shadow:0 8px 20px var(--shadow);
+  }
+  @media (max-width:640px){
+    .assoc-panel{ grid-template-columns:1fr; text-align:center; padding:30px 24px; }
+    .assoc-emblem{ margin:0 auto; }
+  }
+  .assoc-emblem{
+    width:88px; height:88px;
+    border-radius:50%;
+    border:3px solid var(--gold);
+    background:radial-gradient(circle, var(--forest) 55%, #1f3428 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .assoc-emblem svg{ width:44px; height:44px; fill:var(--gold-bright); }
+  .assoc-panel h3{
+    font-family:'Cinzel', serif;
+    font-size:1.15rem;
+    color:var(--wine-deep);
+    margin-bottom:8px;
+  }
+  .assoc-panel p{ margin:0; color:#4a3a24; font-size:0.97rem; }
+
+  /* ---------- PHOTOS ---------- */
+  header.hero{
+    background-image:
+      linear-gradient(180deg, rgba(74,15,24,0.55), rgba(46,10,15,0.82) 65%, var(--parchment) 100%),
+      url('https://images.unsplash.com/photo-1762275193989-39b54a0194aa?auto=format&fit=crop&w=1600&q=70');
+    background-size:cover;
+    background-position:center 30%;
+  }
+  header.hero .eyebrow,
+  header.hero h1{ color:var(--parchment); text-shadow:2px 2px 0 rgba(0,0,0,0.35), 0 2px 20px rgba(0,0,0,0.4); }
+  header.hero .eyebrow{ color:var(--gold-bright); }
+
+  .feature-card{ overflow:hidden; padding-top:0; }
+  .feature-photo{
+    width:calc(100% + 40px);
+    margin:0 -20px 20px;
+    height:140px;
+    object-fit:cover;
+    display:block;
+    filter:saturate(0.95) contrast(1.02);
+  }
+  .feature-card .icon,
+  .feature-card h3,
+  .feature-card p{ padding:0 4px; }
+  .feature-card .icon{ margin-top:6px; }
+
+  .heritage-photo{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:8px;
+    border:2px solid var(--gold);
+    margin-bottom:14px;
+    display:block;
+  }
+  .photo-caption{
+    font-size:0.78rem;
+    color:#8a7757;
+    font-style:italic;
+    margin:-8px 0 16px;
+  }
 </style>
 </head>
 <body>
@@ -525,6 +746,7 @@
   <div class="wrap">
     <a href="#programme">Programme</a>
     <a href="#histoire">Histoire</a>
+    <a href="#patrimoine">Patrimoine</a>
     <a href="#infos-pratiques">Infos pratiques</a>
     <a href="#faq">FAQ</a>
     <a href="#acces">Accès</a>
@@ -533,6 +755,7 @@
 
 <header class="hero">
   <div class="banner-flags" aria-hidden="true"></div>
+  <div class="anniv-ribbon">10ᵉ édition</div>
   <div class="wrap">
     <div class="crest" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z"/></svg>
@@ -560,6 +783,28 @@
   </div>
 </header>
 
+<div class="anniversary" aria-label="10e anniversaire de la fête">
+  <div class="wrap">
+    <span class="eyebrow">Un grand anniversaire</span>
+    <div class="roman">X</div>
+    <h2>10 ans de Fête Médiévale</h2>
+    <p>Le Château de la Quintaine fête cette année la 10<sup>e</sup> édition de sa Fête Médiévale — une décennie de marchés artisanaux, de combats de chevaliers et de journées costumées en famille, au pied de cette tour du XV<sup>e</sup> siècle qui a tout vu passer.</p>
+    <div class="edition-track" aria-hidden="true">
+      <div class="edition-dot">1</div>
+      <div class="edition-line"></div>
+      <div class="edition-dot">2</div>
+      <div class="edition-line"></div>
+      <div class="edition-dot">3</div>
+      <div class="edition-line"></div>
+      <div class="edition-dot">…</div>
+      <div class="edition-line"></div>
+      <div class="edition-dot">9</div>
+      <div class="edition-line"></div>
+      <div class="edition-dot final">10</div>
+    </div>
+  </div>
+</div>
+
 <section id="au-programme" aria-label="Ce qui vous attend">
   <div class="wrap">
     <div class="section-head">
@@ -568,21 +813,25 @@
     </div>
     <div class="features">
       <div class="feature-card">
+        <img class="feature-photo" src="https://images.unsplash.com/photo-1775403908156-6ddf40db912e?auto=format&fit=crop&w=800&q=70" alt="Artisan travaillant le bois sous une tente, en costume d'époque" loading="lazy">
         <svg class="icon" viewBox="0 0 24 24"><path d="M3 8h18v2H3zM4 10h16l-1 10H5zM9 2h6v2H9z"/></svg>
         <h3>Grand marché artisanal</h3>
         <p>Artisans et créateurs présentent leur savoir-faire dans les allées du château.</p>
       </div>
       <div class="feature-card">
+        <img class="feature-photo" src="https://images.unsplash.com/photo-1758388556969-8e624b0e3420?auto=format&fit=crop&w=800&q=70" alt="Foule rassemblée sur une place au milieu des échoppes" loading="lazy">
         <svg class="icon" viewBox="0 0 24 24"><path d="M7 3c1 2 1 4 0 6 1 1 2 3 1 5-2-1-3-3-3-5-1-2 0-4 2-6zm10 0c-1 2-1 4 0 6-1 1-2 3-1 5 2-1 3-3 3-5 1-2 0-4-2-6zM4 20c3-4 6-6 8-6s5 2 8 6z"/></svg>
         <h3>Spectacles</h3>
         <p>Musiciens, jongleurs et troubadours animent la fête toute la journée.</p>
       </div>
       <div class="feature-card">
+        <img class="feature-photo" src="https://images.pexels.com/photos/29189101/pexels-photo-29189101.jpeg?auto=compress&w=800&q=70" alt="Chevalier en armure participant à une joute équestre" loading="lazy">
         <svg class="icon" viewBox="0 0 24 24"><path d="M6 2l4 4-8 8 2 2 8-8 4 4 2-2-10-10zM17 13l5 5-2 2-5-5z"/></svg>
         <h3>Combats médiévaux</h3>
         <p>Chevaliers en armure s'affrontent lors de joutes et de combats de reconstitution.</p>
       </div>
       <div class="feature-card">
+        <img class="feature-photo" src="https://images.unsplash.com/photo-1699501993044-bbcddede77d0?auto=format&fit=crop&w=800&q=70" alt="Détail d'une armure de chevalier lors d'une fête médiévale" loading="lazy">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6L3 9l6-1z"/></svg>
         <h3>Entrée gratuite</h3>
         <p>Ouvert à tous, petits et grands, sans réservation ni billet.</p>
@@ -630,6 +879,8 @@
         <span class="eyebrow">Un décor authentique</span>
         <h2>Le Château de la Quintaine</h2>
         <div class="rule" style="margin-left:0;"></div>
+        <img class="heritage-photo" src="https://images.unsplash.com/photo-1750834371191-cb6e18ecfe4c?auto=format&fit=crop&w=1000&q=70" alt="Château médiéval avec tours et pont, photo d'illustration">
+        <p class="photo-caption">Photo d'illustration — pas le Château de la Quintaine lui-même.</p>
         <p>La fête se tient dans un cadre qui n'a rien d'un décor de carton-pâte. La tour d'escalier du château, seul élément subsistant de l'édifice d'origine, date réellement du <strong>XV<sup>e</sup> siècle</strong> — l'époque même que l'événement fait revivre le temps d'une journée.</p>
         <p>Le corps de logis principal a ensuite été reconstruit au XVIII<sup>e</sup> siècle, puis modifié par des adjonctions au XIX<sup>e</sup> siècle. La tour, elle, a conservé sa porte gothique flamboyant surmontée d'un arc en accolade, et son escalier en vis à base polyédrique sculptée.</p>
         <p>Classé monument historique depuis 1986, le château reste une propriété privée — c'est le temps d'une fête par an qu'il ouvre ainsi ses abords à tous.</p>
@@ -648,7 +899,60 @@
   </div>
 </section>
 
-<section class="alt" id="infos-pratiques" aria-label="Informations pratiques">
+<section class="alt" aria-label="Patrimoine de Panazol" id="patrimoine">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Le patrimoine de Panazol</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="heritage-card">
+      <div>
+        <span class="tag">XIᵉ – XIXᵉ siècle</span>
+        <h3>L'église Saint-Pierre-ès-Liens</h3>
+        <p>Plus ancien monument de la commune, l'église de Panazol tire son nom du récit de l'emprisonnement de saint Pierre à Jérusalem sous le roi Hérode Agrippa, en l'an 43. Son histoire commence au XI<sup>e</sup> siècle sous la forme d'une église romane, rattachée à l'abbaye Saint-Martial de Limoges.</p>
+        <p>Il a fallu attendre le XIII<sup>e</sup> siècle et une reconstruction majeure pour que l'édifice adopte un style gothique. De l'église romane primitive ne subsistent aujourd'hui que quelques contreforts, des corbeaux encastrés dans le mur sud et un fragment de voûte en berceau devant le chœur — le reste, chapelles et chevet compris, s'est ajouté siècle après siècle jusqu'au XIX<sup>e</sup>.</p>
+        <a class="heritage-link" href="https://www.mairie-panazol.fr/panazol-attractive/patrimoine/" target="_blank" rel="noopener noreferrer">Source : Ville de Panazol →</a>
+      </div>
+      <div class="heritage-aside">
+        <strong>Le saviez-vous ?</strong><br><br>
+        Le crépi de l'église n'a été retiré qu'en 1991, laissant apparaître les pierres qu'on peut admirer aujourd'hui — un chantier de restauration récent pour un monument près de mille fois centenaire.
+      </div>
+    </div>
+
+    <div class="heritage-card">
+      <div>
+        <span class="tag">1861 — aujourd'hui Mairie</span>
+        <h3>Le château de la Beausserie, et son lien avec la Quintaine</h3>
+        <p>Le château de la Beausserie fut achevé en 1861 à la demande de Guillaume Guybert de la Beausserie, avant de passer de mains en mains — vendu au <strong>Comte O'Toole</strong>, qui possédait alors <em>également le château de la Quintaine</em>, celui-là même où se tient la Fête Médiévale.</p>
+        <p>Après plusieurs propriétaires successifs et une période de colonie de vacances, le maire Pierre Guillot en fait l'acquisition en 1962, avant que le château ne devienne officiellement la mairie de Panazol en 1969.</p>
+        <a class="heritage-link" href="https://www.mairie-panazol.fr/panazol-attractive/patrimoine/" target="_blank" rel="noopener noreferrer">Source : Ville de Panazol →</a>
+      </div>
+      <div class="heritage-aside">
+        <strong>Un même seigneur, deux châteaux</strong><br><br>
+        La Quintaine et la Beausserie ont un temps appartenu à la même famille, le Comte O'Toole — un fil rouge qui relie le château de la fête à celui, tout proche, devenu aujourd'hui l'hôtel de ville.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="L'association organisatrice">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Une fête portée par une association</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="assoc-panel">
+      <div class="assoc-emblem" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg>
+      </div>
+      <div>
+        <h3>Une association de passionnés du Moyen Âge</h3>
+        <p>La Fête Médiévale du Château de la Quintaine est organisée par une association locale de reconstitution et d'animation médiévale — un "Verein" au sens plein du terme : des bénévoles passionnés d'histoire vivante, qui préparent toute l'année campements, combats et marché pour faire revivre le Moyen Âge à Panazol. Cette 10<sup>e</sup> édition est le fruit de leur engagement fidèle depuis la toute première fête.</p>
+      </div>
+    </div>
+  </div>
+</section>
   <div class="wrap">
     <div class="section-head">
       <h2>Infos pratiques</h2>
