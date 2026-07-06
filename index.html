@@ -375,9 +375,161 @@
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important;}
   }
+
+  /* ---------- NAV ---------- */
+  nav.wayfinder{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(236,224,196,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--gold);
+  }
+  nav.wayfinder .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:34px;
+    padding:14px 28px;
+    flex-wrap:wrap;
+  }
+  nav.wayfinder a{
+    font-family:'Cinzel', serif;
+    font-size:0.82rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--wine-deep);
+    font-weight:600;
+    padding:4px 2px;
+    border-bottom:2px solid transparent;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  nav.wayfinder a:hover{ border-color:var(--gold); color:var(--wine); }
+
+  /* ---------- HISTORY / TWO COLUMN ---------- */
+  .history-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:52px;
+    align-items:start;
+  }
+  @media (max-width:760px){ .history-grid{grid-template-columns:1fr;} }
+
+  .history-grid h2{ text-align:left; font-size:clamp(1.7rem,3.6vw,2.3rem); }
+  .history-grid .rule{ margin:14px 0 22px; }
+  .history-grid p{ color:#4a3a24; margin:0 0 16px; }
+  .history-grid p:last-child{ margin-bottom:0; }
+
+  .fact-panel{
+    background:linear-gradient(180deg,#f8f1dc,#ecdfb9);
+    border:2px solid var(--gold);
+    border-radius:10px;
+    padding:28px 26px;
+    box-shadow:0 6px 16px var(--shadow);
+  }
+  .fact-panel .eyebrow{ display:block; margin-bottom:10px; }
+  .fact-list{ list-style:none; margin:0; padding:0; }
+  .fact-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(107,21,34,0.15);
+    display:flex;
+    gap:12px;
+    font-size:0.96rem;
+    color:#4a3a24;
+  }
+  .fact-list li:last-child{ border-bottom:none; }
+  .fact-list strong{
+    font-family:'Cinzel', serif;
+    color:var(--wine-deep);
+    min-width:80px;
+    flex-shrink:0;
+  }
+
+  /* ---------- PRACTICAL INFO ---------- */
+  .practical-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media (max-width:760px){ .practical-grid{grid-template-columns:1fr;} }
+
+  .practical-card{
+    border-left:4px solid var(--wine);
+    padding:4px 0 4px 22px;
+  }
+  .practical-card h3{
+    font-family:'Cinzel', serif;
+    font-size:1.05rem;
+    color:var(--wine-deep);
+    margin-bottom:8px;
+  }
+  .practical-card p{
+    font-size:0.95rem;
+    color:#4a3a24;
+    margin:0;
+  }
+
+  /* ---------- FAQ (accordion via details) ---------- */
+  .faq-list{
+    max-width:720px;
+    margin:0 auto;
+  }
+  .faq-list details{
+    background:linear-gradient(180deg,#f8f1dc,#ecdfb9);
+    border:1.5px solid var(--gold);
+    border-radius:8px;
+    margin-bottom:14px;
+    padding:4px 22px;
+    box-shadow:0 4px 10px var(--shadow);
+  }
+  .faq-list summary{
+    cursor:pointer;
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    color:var(--wine-deep);
+    padding:16px 0;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .faq-list summary::-webkit-details-marker{ display:none; }
+  .faq-list summary::after{
+    content:"+";
+    font-size:1.4rem;
+    color:var(--gold);
+    flex-shrink:0;
+    transition:transform 0.2s ease;
+  }
+  .faq-list details[open] summary::after{ content:"–"; }
+  .faq-list p{
+    margin:0 0 18px;
+    color:#4a3a24;
+    font-size:0.97rem;
+  }
+
+  .note-indicative{
+    text-align:center;
+    font-size:0.85rem;
+    color:#8a7757;
+    font-style:italic;
+    margin-top:20px;
+  }
 </style>
 </head>
 <body>
+
+<nav class="wayfinder" aria-label="Navigation de la page">
+  <div class="wrap">
+    <a href="#programme">Programme</a>
+    <a href="#histoire">Histoire</a>
+    <a href="#infos-pratiques">Infos pratiques</a>
+    <a href="#faq">FAQ</a>
+    <a href="#acces">Accès</a>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="banner-flags" aria-hidden="true"></div>
@@ -408,7 +560,7 @@
   </div>
 </header>
 
-<section aria-label="Ce qui vous attend">
+<section id="au-programme" aria-label="Ce qui vous attend">
   <div class="wrap">
     <div class="section-head">
       <h2>Ce qui vous attend</h2>
@@ -439,7 +591,7 @@
   </div>
 </section>
 
-<section class="alt" aria-label="Programme de la journée">
+<section class="alt" id="programme" aria-label="Programme de la journée">
   <div class="wrap">
     <div class="section-head">
       <h2>Le programme</h2>
@@ -448,20 +600,120 @@
     <div class="timeline">
       <div class="t-item">
         <div class="t-time">11h00</div>
-        <div class="t-desc">Ouverture des portes — marché artisanal, artisans et créations en accès libre.</div>
+        <div class="t-desc">Ouverture des portes. Le grand marché artisanal prend place autour du château : artisans d'art, créateurs et produits du terroir en accès libre.</div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">Matinée</div>
+        <div class="t-desc">Déambulations de troubadours, jongleurs et musiciens dans les allées. Premiers ateliers pour les enfants (jeux d'adresse, calligraphie, petits jeux de rôle).</div>
       </div>
       <div class="t-item highlight">
         <div class="t-time">12h00 — Temps fort</div>
-        <div class="t-desc">Le moment phare de la journée : joutes et démonstrations de combat devant le château.</div>
+        <div class="t-desc">Le moment phare de la journée : combats de chevaliers en armure devant le château, sous le regard de la foule massée autour de la lice.</div>
       </div>
       <div class="t-item">
         <div class="t-time">Après-midi</div>
-        <div class="t-desc">Spectacles de rue, musique et animations pour toute la famille dans les jardins.</div>
+        <div class="t-desc">Spectacles de rue, musique et danses médiévales, nouvelles démonstrations de combat et poursuite du marché artisanal.</div>
       </div>
       <div class="t-item">
         <div class="t-time">18h00</div>
-        <div class="t-desc">Fermeture de la fête. Rendez-vous l'année prochaine !</div>
+        <div class="t-desc">Fermeture de la fête. Rendez-vous l'année prochaine au Château de la Quintaine !</div>
       </div>
+    </div>
+    <p class="note-indicative">Programme indicatif, susceptible d'être ajusté par les organisateurs.</p>
+  </div>
+</section>
+
+<section aria-label="Histoire du château" id="histoire">
+  <div class="wrap">
+    <div class="history-grid">
+      <div>
+        <span class="eyebrow">Un décor authentique</span>
+        <h2>Le Château de la Quintaine</h2>
+        <div class="rule" style="margin-left:0;"></div>
+        <p>La fête se tient dans un cadre qui n'a rien d'un décor de carton-pâte. La tour d'escalier du château, seul élément subsistant de l'édifice d'origine, date réellement du <strong>XV<sup>e</sup> siècle</strong> — l'époque même que l'événement fait revivre le temps d'une journée.</p>
+        <p>Le corps de logis principal a ensuite été reconstruit au XVIII<sup>e</sup> siècle, puis modifié par des adjonctions au XIX<sup>e</sup> siècle. La tour, elle, a conservé sa porte gothique flamboyant surmontée d'un arc en accolade, et son escalier en vis à base polyédrique sculptée.</p>
+        <p>Classé monument historique depuis 1986, le château reste une propriété privée — c'est le temps d'une fête par an qu'il ouvre ainsi ses abords à tous.</p>
+      </div>
+      <div class="fact-panel">
+        <span class="eyebrow">En bref</span>
+        <ul class="fact-list">
+          <li><strong>Époque</strong> Tour du XV<sup>e</sup> siècle</li>
+          <li><strong>Style</strong> Porte gothique flamboyant</li>
+          <li><strong>Statut</strong> Inscrit monument historique (1986)</li>
+          <li><strong>Commune</strong> Panazol, Haute-Vienne (87)</li>
+          <li><strong>Aujourd'hui</strong> Propriété privée, ouverte le temps de la fête</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="infos-pratiques" aria-label="Informations pratiques">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Infos pratiques</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="practical-grid">
+      <div class="practical-card">
+        <h3>S'y rendre</h3>
+        <p>Le château se trouve au lieu-dit La Quintaine, à Panazol (87350), aux portes de Limoges. Un fléchage est généralement mis en place depuis les axes principaux le jour de la fête.</p>
+      </div>
+      <div class="practical-card">
+        <h3>Stationnement</h3>
+        <p>Prévoyez de vous garer à proximité et de terminer le trajet à pied : comme pour la plupart des fêtes médiévales, les abords immédiats du site sont réservés aux exposants et aux secours.</p>
+      </div>
+      <div class="practical-card">
+        <h3>Restauration sur place</h3>
+        <p>Petite restauration et buvette sont proposées sur le site pour tenir toute la journée entre deux spectacles.</p>
+      </div>
+      <div class="practical-card">
+        <h3>En famille</h3>
+        <p>L'événement est pensé pour petits et grands : animations, jeux et ateliers accompagnent le marché et les combats tout au long de la journée.</p>
+      </div>
+      <div class="practical-card">
+        <h3>Météo</h3>
+        <p>La fête se déroule en extérieur, dans les jardins et abords du château. Pensez à consulter la météo locale avant de partir, et prévoyez une tenue adaptée en cas de soleil ou de pluie.</p>
+      </div>
+      <div class="practical-card">
+        <h3>Se costumer</h3>
+        <p>Le déguisement est obligatoire pour participer. Coutures maison, location ou tenue simple façon "paysan médiéval" : l'essentiel est de jouer le jeu, pour les adultes comme pour les enfants.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Questions fréquentes" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions fréquentes</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>L'entrée est-elle vraiment gratuite ?</summary>
+        <p>Oui. L'accès à la fête est gratuit pour tous, adultes comme enfants, sans réservation ni billet à retirer.</p>
+      </details>
+      <details>
+        <summary>Le déguisement est-il vraiment obligatoire ?</summary>
+        <p>Oui, pour participer à la fête, un déguisement médiéval est demandé aux adultes comme aux enfants. Pas besoin d'une tenue élaborée : une allure simple et évocatrice du Moyen Âge suffit.</p>
+      </details>
+      <details>
+        <summary>L'événement a-t-il lieu en cas de pluie ?</summary>
+        <p>La fête se déroule principalement en extérieur. En cas de forte pluie, certaines animations peuvent être adaptées ou reportées : gardez un œil sur les communications officielles de la fête le jour J.</p>
+      </details>
+      <details>
+        <summary>Peut-on venir avec de jeunes enfants ?</summary>
+        <p>Oui, l'événement est familial : marché, spectacles et animations sont pensés pour un public de tous âges.</p>
+      </details>
+      <details>
+        <summary>Y a-t-il de quoi se restaurer sur place ?</summary>
+        <p>Une petite restauration et une buvette sont généralement proposées sur le site, en complément des étals du marché artisanal.</p>
+      </details>
+      <details>
+        <summary>Peut-on venir avec son chien ?</summary>
+        <p>Par mesure de sécurité, mieux vaut laisser les animaux de compagnie à la maison lors de ce type de rassemblement en extérieur avec animaux de spectacle et démonstrations de combat.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -472,7 +724,7 @@
   <p>Pour participer — adultes et enfants</p>
 </div>
 
-<footer>
+<footer id="acces">
   <div class="wrap">
     <div class="free-badge">
       Gratuit
@@ -480,9 +732,12 @@
     </div>
     <address>
       Château de la Quintaine<br>
-      Panazol, 87350<br>
+      Panazol, 87350 — Haute-Vienne<br>
       12 juillet · 11h00 – 18h00
     </address>
+    <p class="foot-note" style="margin-bottom:22px;">
+      <a href="https://www.google.com/maps/search/Ch%C3%A2teau+de+la+Quintaine+Panazol" target="_blank" rel="noopener noreferrer" style="text-decoration:underline; color:var(--wine-deep); font-family:'Cinzel', serif; font-size:0.85rem; letter-spacing:0.05em;">Voir l'itinéraire →</a>
+    </p>
     <p class="foot-note">Fête médiévale ouverte à tous — venez costumés en famille ou entre amis.</p>
   </div>
 </footer>
