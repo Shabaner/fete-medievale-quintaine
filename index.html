@@ -738,6 +738,63 @@
     font-style:italic;
     margin:-8px 0 16px;
   }
+
+  /* ---------- GALLERY (previous editions) ---------- */
+  .gallery-note{
+    text-align:center;
+    max-width:600px;
+    margin:-24px auto 40px;
+    font-size:0.9rem;
+    color:#7a6748;
+    font-style:italic;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:14px;
+  }
+  .gallery-grid a:nth-child(5n+1){ grid-row:span 2; }
+  @media (max-width:900px){
+    .gallery-grid{ grid-template-columns:repeat(3, 1fr); }
+    .gallery-grid a:nth-child(5n+1){ grid-row:auto; }
+  }
+  @media (max-width:560px){
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+  .gallery-grid a{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    border-radius:6px;
+    border:2px solid var(--gold);
+    box-shadow:0 4px 10px var(--shadow);
+    aspect-ratio:1/1;
+  }
+  .gallery-grid a:nth-child(5n+1){ aspect-ratio:1/2.05; }
+  @media (max-width:900px){ .gallery-grid a:nth-child(5n+1){ aspect-ratio:1/1; } }
+  .gallery-grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 0.4s ease, filter 0.4s ease;
+    filter:saturate(0.92) sepia(0.12);
+  }
+  .gallery-grid a:hover img{
+    transform:scale(1.08);
+    filter:saturate(1.05) sepia(0.04);
+  }
+  .gallery-grid a::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(20,10,4,0.55));
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+  .gallery-grid a:hover::after{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){
+    .gallery-grid img{ transition:none; }
+  }
 </style>
 </head>
 <body>
@@ -747,6 +804,7 @@
     <a href="#programme">Programme</a>
     <a href="#histoire">Histoire</a>
     <a href="#patrimoine">Patrimoine</a>
+    <a href="#galerie">Galerie</a>
     <a href="#infos-pratiques">Infos pratiques</a>
     <a href="#faq">FAQ</a>
     <a href="#acces">Accès</a>
@@ -869,6 +927,48 @@
       </div>
     </div>
     <p class="note-indicative">Programme indicatif, susceptible d'être ajusté par les organisateurs.</p>
+  </div>
+</section>
+
+<section aria-label="Galerie des éditions précédentes" id="galerie">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Éditions précédentes</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="gallery-note">Photos d'ambiance médiévale à titre d'illustration — pas des photos vérifiées des éditions passées de cette fête.</p>
+    <div class="gallery-grid">
+      <a href="https://unsplash.com/photos/a-man-in-a-suit-of-armor-holding-a-sword-Gvabu9HV2f0" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1731080602393-15f95c452376?auto=format&fit=crop&w=700&q=70" alt="Homme en armure tenant une épée" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/man-in-costume-plays-lute-at-outdoor-festival-QxPfQ9rHt5Y" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1759719441118-c1e15affa708?auto=format&fit=crop&w=700&q=70" alt="Musicien en costume jouant du luth en extérieur" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/men-fighting-with-sword-GBHnQXbY2Ts" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1559499225-6862de52e2a9?auto=format&fit=crop&w=700&q=70" alt="Combat à l'épée entre deux hommes en costume" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/people-dressed-up-at-a-renaissance-festival-SNJOsmxw3Zs" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1747409817207-4cda84dbc0fc?auto=format&fit=crop&w=700&q=70" alt="Personnes costumées lors d'une fête Renaissance" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/people-in-medieval-armor-at-a-historical-reenactment-event-xJMijeYPnbM" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1777722737896-a8612c4b4988?auto=format&fit=crop&w=700&q=70" alt="Groupe en armure médiévale lors d'une reconstitution historique" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/a-man-in-a-red-and-white-outfit-holding-a-flag-WyVeZGBlEPg" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1694383221399-716222bf08d0?auto=format&fit=crop&w=700&q=70" alt="Homme en tenue rouge et blanche tenant un drapeau" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/a-man-dressed-in-armor-riding-on-the-back-of-a-horse-aymIPosVUKk" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1699502057347-dc405388e9d0?auto=format&fit=crop&w=700&q=70" alt="Cavalier en armure à cheval" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/knights-in-armor-duel-before-a-crowd-lpSIfyYngFg" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1777722737892-9f37d7714a0b?auto=format&fit=crop&w=700&q=70" alt="Duel de chevaliers en armure devant une foule" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/people-in-historical-armor-and-costumes-at-a-festival-NN8j2s0hUyk" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1770820986353-0c4f42a76f58?auto=format&fit=crop&w=700&q=70" alt="Personnes en armure et costumes historiques lors d'une fête" loading="lazy">
+      </a>
+      <a href="https://unsplash.com/photos/a-group-of-people-riding-horses-down-a-street-VEhTi5dq0U8" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1729498189308-c8d8baa86c5e?auto=format&fit=crop&w=700&q=70" alt="Groupe de cavaliers défilant dans une rue" loading="lazy">
+      </a>
+    </div>
   </div>
 </section>
 
